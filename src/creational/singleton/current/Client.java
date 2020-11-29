@@ -1,4 +1,4 @@
-package creational.singleton.problem;
+package creational.singleton.current;
 
 public class Client {
 

@@ -1,14 +1,20 @@
 package behavioral.memento.solved;
 
+import java.util.Stack;
+
 public class ConnectingLineCaretaker {
 
-    private ConnectingLineMemento connectingLineMemento;
+    private Stack<ConnectingLineMemento> connectingLineMementosStack;
+
+    public ConnectingLineCaretaker() {
+        this.connectingLineMementosStack = new Stack<>();
+    }
 
     public void saveState(ConnectingLine connectingLine) {
-        connectingLineMemento = connectingLine.createMemento();
+        connectingLineMementosStack.push(connectingLine.createMemento());
     }
 
     public void restoreState(ConnectingLine connectingLine) {
-        connectingLine.setMemento(connectingLineMemento);
+        connectingLine.setMemento(connectingLineMementosStack.pop());
     }
 }
